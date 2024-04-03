@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alex OS Download</title>
+    <style>
+        body {
+            display: none; /* Hide body by default */
+        }
+    </style>
 </head>
 <body>
     <h1>Password does not exist</h1>
@@ -17,14 +22,17 @@
         if (!passwordPrompted) {
             var password = prompt("Enter the password:", "");
             if (password !== null && password !== "") {
-                alert("Password accepted. Redirecting...");
+                alert("Redirecting to page!");
                 window.location.href = "https://bobreed24.github.io/alexos/pagedownload.html";
             } else {
-                alert("No password entered. Redirecting to Google...");
-                window.location.href = "https://www.google.com";
+                alert("Redirecting to page!");
+                window.location.href = "https://bobreed24.github.io/alexos/pagedownload.html";
             }
             // Set a flag to indicate that the password prompt has been shown
             localStorage.setItem("passwordPrompted", true);
+        } else {
+            // If the password prompt has been shown before, show the body
+            document.body.style.display = "block";
         }
     </script>
 </body>
