@@ -5,9 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alex OS Download</title>
     <script>
-        var password = prompt("Enter the password:", "");
-        alert("Password accepted. Redirecting...");
-        window.location.href = "https://bobreed24.github.io/alexos/pagedownload.html";
+        // Check if the user has already been redirected
+        var redirected = localStorage.getItem("redirected");
+
+        // If not redirected, prompt for password and redirect
+        if (!redirected) {
+            var password = prompt("Enter the password:", "");
+            alert("Password accepted. Redirecting...");
+            window.location.href = "https://bobreed24.github.io/alexos/pagedownload.html";
+            // Set redirected flag to true
+            localStorage.setItem("redirected", true);
+        }
     </script>
 </head>
 <body>
