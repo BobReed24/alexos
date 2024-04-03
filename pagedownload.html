@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alex OS Download</title>
-    <script>
-        // Check if the user has already been redirected
-        var redirected = localStorage.getItem("redirected");
-
-        // If not redirected, prompt for password and redirect
-        if (!redirected) {
-            var password = prompt("Enter the password:", "");
-            alert("Please wait while your redirected to the download!");
-            window.location.href = "https://bobreed24.github.io/alexos/pagedownload.html";
-            // Set redirected flag to true
-            localStorage.setItem("redirected", true);
-        }
-    </script>
 </head>
 <body>
     <h1>Password does not exist</h1>
     <p>Maybe you did not get the password yet or never purchased a password. If you believe this is a mistake, please contact <a href="mailto:alex@ayxia.com">alex@ayxia.com</a> for more information.</p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var password = prompt("Enter the password:", "");
+            if (password !== null && password !== "") {
+                alert("Password accepted. Redirecting...");
+                window.location.href = "https://bobreed24.github.io/alexos/pagedownload.html";
+            } else {
+                alert("No password entered. Redirecting to Google...");
+                window.location.href = "https://www.google.com";
+            }
+        });
+    </script>
 </body>
 </html>
