@@ -10,7 +10,11 @@
     <p>Maybe you did not get the password yet or never purchased a password. If you believe this is a mistake, please contact <a href="mailto:alex@ayxia.com">alex@ayxia.com</a> for more information.</p>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        // Check if the password prompt has been shown before
+        var passwordPrompted = localStorage.getItem("passwordPrompted");
+
+        // If the password prompt hasn't been shown before, show it
+        if (!passwordPrompted) {
             var password = prompt("Enter the password:", "");
             if (password !== null && password !== "") {
                 alert("Password accepted. Redirecting...");
@@ -19,7 +23,9 @@
                 alert("No password entered. Redirecting to Google...");
                 window.location.href = "https://www.google.com";
             }
-        });
+            // Set a flag to indicate that the password prompt has been shown
+            localStorage.setItem("passwordPrompted", true);
+        }
     </script>
 </body>
 </html>
